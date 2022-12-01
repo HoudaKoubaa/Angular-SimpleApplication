@@ -1,0 +1,29 @@
+<input type="text" [(ngModel)]="title">{{title}}
+<div>
+    <input type="number" [(ngModel)]="prix">{{prix}}
+</div>
+
+<table>
+<tr>
+    <td>Title</td>
+    <td>Quality</td> 
+    <td>Price</td>
+    <td>Like</td>
+    
+</tr>
+<div *ngFor="let p of listProduct">
+<div *ngIf="p.price <= prix ">
+<tr>
+    <td>{{p.title}}</td>
+    <td>{{p.quantity}}</td>
+    <td>{{p.price}}</td>
+    <td>{{p.like}}</td> 
+    <!-- <td><button *ngIf="p.quantity>0"(click)="buy(p)">Buy</button></td> 1er_facon Il existe dans le dom -->
+    <!-- <button [hidden]="p.quantity==0"(click)="buy(p)">Buy</button> Il n'existe pas dans le Dom -->
+    <td><button [disabled]="p.quantity==0"(click)="buy(p)">Buy</button> </td>
+    <td><button  (click)="like(p)"> Like</button></td> 
+    <td><a [routerLink]="['detail',p.id]"> Details</a></td>
+</tr>
+</div>
+</div>
+</table>
