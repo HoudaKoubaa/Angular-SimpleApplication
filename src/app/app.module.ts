@@ -22,7 +22,7 @@ import { FormProductComponent } from './form-product/form-product.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule //utile pour pouvoir utiliser ngModel
+    FormsModule, //utile pour pouvoir utiliser ngModel
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../services/product.service';
 import { Product } from '../shared/product';
 
 @Component({
@@ -7,10 +8,11 @@ import { Product } from '../shared/product';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  listProduct: Product[];
+  listProduct: Product[]=[];
   title="hello";
   prix=100;
-  constructor() {
+  constructor(private ps:ProductService) //Injection 
+   {
     console.log("ngOnInit")
 
    }
@@ -24,12 +26,15 @@ like(p:Product)
   p.like=p.like+1;
  }
   ngOnInit(): void {
-    this.listProduct=
+    /*this.listProduct=
     [
       {id: "1", title: "T-shirt 1", price: 18, quantity: 0, like: 0},
       {id: "2", title: "T-shirt 2", price: 21, quantity: 10, like: 0},
       {id: "3", title: "T-shirt 3", price: 16, quantity: 8, like: 0}, 
     ]
-  }
+      */
+ 
 
+    this.listProduct=this.ps.getAllProduct();
+}
 }
