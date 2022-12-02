@@ -35,6 +35,6 @@ like(p:Product)
       */
  
 
-    this.listProduct=this.ps.getAllProduct();
+   // this.listProduct=this.ps.getAllProduct();
 }
 }

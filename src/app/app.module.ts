@@ -9,6 +9,7 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DetailsProductComponent } from './details-product/details-product.component';
 import { FormProductComponent } from './form-product/form-product.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormProductComponent } from './form-product/form-product.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule, //utile pour pouvoir utiliser ngModel
-  ],
+    HttpClientModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

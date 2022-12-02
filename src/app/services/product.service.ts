@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../shared/product';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Injectable({ //Decorateur de classe
   providedIn: 'root' //metadata
 })
 export class ProductService {
-
-  constructor() { }
+productUrl: string ="http://localhost:3000/products"
+  constructor(  private myHttp: HttpClient) { }
 getAllProductsFromDB()
-{
-
+{ 
+  return this.myHttp.get(this.productUrl);
 }
   getAllProduct(){
     return [
