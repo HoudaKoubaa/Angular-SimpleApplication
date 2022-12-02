@@ -4,17 +4,15 @@ import { DetailsProductComponent } from './details-product/details-product.compo
 import { FormProductComponent } from './form-product/form-product.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductsComponent } from './products/products.component';
-import { Product } from './shared/product';
 import { UserListComponent } from './user/user-list/user-list.component';
 
 const routes: Routes = [
-  {path:"products",component:ProductsComponent},
-  {path:"addProduct",component:FormProductComponent},
-  {path:"/detail:/id",component:DetailsProductComponent},
 
-  {path:"/detail:/id",component:DetailsProductComponent},
-  {path:"**",component:NotFoundComponent}
-
+  {path:"", redirectTo:"products", pathMatch:"full"},
+  {path:"products", component:ProductsComponent},
+  {path:"detail/:id", component:DetailsProductComponent},
+  {path:"addProduct", component:FormProductComponent},
+  {path:"**", component:NotFoundComponent} //doit être toujours en dernière position
   
 ];
 
