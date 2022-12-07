@@ -1,7 +1,8 @@
 <form ngForm #f="ngForm" >
     <table>
      <tr>
-         <td>id</td>
+        
+   <!--     <td>id</td> 
          <td><input type="text" required pattern="[0-9]*" [(ngModel)]="p.id" name="id" #id="ngModel">
              <div *ngIf="id.invalid">
                  <div *ngIf="id.errors['required']">     
@@ -11,11 +12,12 @@
                      
                      Que des chiffres
                   </div>
-                 <!---variable référence de template -->
+             variable référence de template 
                  
              </div>
-         </td>
-     </tr>
+        
+       
+     </tr>  </td>  -->
      <tr>
          <td>Title</td>
          <td><input name="titlep" [(ngModel)]="p.title" type="text" value="val" required minlength="5" #title="ngModel">

@@ -8,7 +8,7 @@ import { Product } from '../shared/product';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  listProduct: Product[]=[];
+  listProduct: Product[];
   title="hello";
   prix=100;
   constructor(private ps:ProductService) //Injection 
@@ -36,5 +36,6 @@ like(p:Product)
  
 
    // this.listProduct=this.ps.getAllProduct();
+   this.ps.getAllProductsFromDB().subscribe(res=>this.listProduct=res);
 }
 }

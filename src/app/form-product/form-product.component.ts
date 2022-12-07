@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProductService } from '../services/product.service';
 import { Product } from '../shared/product';
 
 @Component({
@@ -8,17 +10,15 @@ import { Product } from '../shared/product';
 })
 export class FormProductComponent implements  OnInit {
 
-  list : Product[]=[];
+  list : Product[];
   p:Product = new Product();
-  constructor() { }
+  constructor(private ps:ProductService, private route:Router) { }
 
   ngOnInit(): void {
   }
 
   addProduct(){
-    console.log(this.p);
-    this.list.push(this.p);
-    this.p=new Product();
+    this.ps.addProduct(this.p).subscribe(()=>this.route.navigateByUrl("/products"));
   }
 
 }

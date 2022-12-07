@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../shared/product';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({ //Decorateur de classe
   providedIn: 'root' //metadata
@@ -8,9 +9,20 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 export class ProductService {
 productUrl: string ="http://localhost:3000/products"
   constructor(  private myHttp: HttpClient) { }
-getAllProductsFromDB()
+getAllProductsFromDB():Observable<Product[]>
 { 
-  return this.myHttp.get(this.productUrl);
+  return this.myHttp.get<Product[]>(this.productUrl);
+}
+
+addProduct(product:Product)
+{
+  return this.myHttp.post(this.productUrl,product)
+}
+
+deleteProduct(product:Product)
+{
+  return this.myHttp.delete(this.productUrl+"/"+ product.id)
+
 }
   getAllProduct(){
     return [
