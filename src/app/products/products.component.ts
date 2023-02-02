@@ -8,13 +8,18 @@ import { Product } from '../shared/product';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
+  nb2:number;
   listProduct: Product[];
   title="hello";
   prix=100;
   constructor(private ps:ProductService) //Injection 
    {
     console.log("ngOnInit")
-
+   }
+   delete(p:Product){
+    this.ps.deleteProduct(p).subscribe(()=>
+    this.ps.getAllProductsFromDB().subscribe(res=>
+      {this.listProduct=res}));
    }
 buy(p:Product)
 {
@@ -37,5 +42,13 @@ like(p:Product)
 
    // this.listProduct=this.ps.getAllProduct();
    this.ps.getAllProductsFromDB().subscribe(res=>this.listProduct=res);
+ 
+
 }
+incrementLike(obj:any){
+  //obj.product.like=obj.product.like + Number(obj.nb);
+ 
+   let i = this.listProduct.indexOf(obj.product);
+this.listProduct[i].like++;
+ }
 }

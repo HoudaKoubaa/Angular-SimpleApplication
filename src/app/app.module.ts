@@ -10,6 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { DetailsProductComponent } from './details-product/details-product.component';
 import { FormProductComponent } from './form-product/form-product.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     UserListComponent,
     NotFoundComponent,
     DetailsProductComponent,
-    FormProductComponent
+    FormProductComponent,
+    ProductComponent
   ],
+
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,4 +33,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   providers: [],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }

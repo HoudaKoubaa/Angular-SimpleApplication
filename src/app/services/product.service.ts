@@ -31,6 +31,11 @@ deleteProduct(product:Product)
       {id: "3", title: "T-shirt 3", price: 16, quantity: 8, like: 0}, 
     ]
   }
+  updateProduct(product:Product):Observable<Product>{
+    console.log(product);
+    return this.myHttp.put<Product>(this.productUrl+"/"+product.id,
+    product)
+  }
 
   }
 

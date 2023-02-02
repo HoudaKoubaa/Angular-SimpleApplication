@@ -16,9 +16,8 @@ export class FormProductComponent implements  OnInit {
 
   ngOnInit(): void {
   }
-
+ 
   addProduct(){
     this.ps.addProduct(this.p).subscribe(()=>this.route.navigateByUrl("/products"));
   }
-
 }
